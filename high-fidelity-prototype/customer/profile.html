@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../styles.css">
+  <title>My Profile - FitMatch</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <a href="../index.html" class="navbar-brand"> <img src="../images/logo.png" width="120" height="92"></a>
+
+        <ul class="nav-links">
+          <li><a href="browse-trainers.html" style="color: var(--primary-color); font-weight: 700;">Browse Trainers</a>
+          </li>
+          <li><a href="my-sessions.html">My Sessions</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="../login.html" class="btn btn-outline">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="section" style="background: var(--light-gray);">
+      <div class="container">
+        <h1 style="font-size: 2rem; font-weight: 700;">My Profile</h1>
+        <p class="text-muted">View and update your fitness goals and preferences</p>
+      </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+
+        <!-- Personal Info Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Personal Information</h2>
+          </div>
+          <div class="card-content">
+            <div class="grid grid-2">
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.25rem;">First Name</p>
+                <p style="font-weight: 600;">John</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.25rem;">Last Name</p>
+                <p style="font-weight: 600;">Doe</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.25rem;">Email</p>
+                <p style="font-weight: 600;">john@example.com</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.25rem;">Phone</p>
+                <p style="font-weight: 600;">+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <button class="btn btn-outline" style="margin-top: 1rem;" onclick="window.location.href='edit-details.html'">Edit Personal Info</button>
+          </div>
+        </div>
+
+        <!-- Fitness Goals Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Fitness Goals</h2>
+          </div>
+          <div class="card-content">
+            <div class="form-group">
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Primary Goal:</strong></p>
+              <p style="font-weight: 600; margin-bottom: 1rem;">Strength Training</p>
+
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Current Fitness Level:</strong></p>
+              <p style="font-weight: 600; margin-bottom: 1rem;">Intermediate</p>
+
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Target Weight:</strong></p>
+              <p style="font-weight: 600; margin-bottom: 1rem;">180 lbs (currently 195 lbs)</p>
+
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Target Body Fat:</strong></p>
+              <p style="font-weight: 600; margin-bottom: 1rem;">15% (currently 22%)</p>
+            </div>
+            <button class="btn btn-outline">Edit Fitness Goals</button>
+          </div>
+        </div>
+
+        <!-- Constraints Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Health Constraints</h2>
+          </div>
+          <div class="card-content">
+            <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Injuries or Conditions:</strong></p>
+            <p style="font-weight: 600; margin-bottom: 1rem;">Lower back pain (mild), Previous shoulder injury
+              (recovered)</p>
+
+            <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Restrictions:</strong></p>
+            <p style="font-weight: 600; margin-bottom: 1rem;">Avoid heavy overhead pressing, No plyometrics</p>
+
+            <button class="btn btn-outline">Edit Constraints</button>
+          </div>
+        </div>
+
+        <!-- Preferences Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Session Preferences</h2>
+          </div>
+          <div class="card-content">
+            <div class="grid grid-2">
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Frequency:</strong></p>
+                <p style="font-weight: 600; margin-bottom: 1rem;">2-3 times per week</p>
+
+                <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Duration:</strong></p>
+                <p style="font-weight: 600;">60 minutes</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Preferred Time:</strong></p>
+                <p style="font-weight: 600; margin-bottom: 1rem;">Evening (6-8 PM)</p>
+
+                <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Location:</strong></p>
+                <p style="font-weight: 600;">Downtown Gym</p>
+              </div>
+            </div>
+            <button class="btn btn-outline">Edit Preferences</button>
+          </div>
+        </div>
+
+        <!-- Active Trainers Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Your Trainers</h2>
+          </div>
+          <div class="card-content">
+            <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--medium-gray);">
+              <p style="font-weight: 600; margin-bottom: 0.25rem;">Mike Johnson - Strength Training</p>
+              <p class="text-muted" style="font-size: 0.9rem;">6 sessions completed • Rating: 5/5</p>
+            </div>
+            <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--medium-gray);">
+              <p style="font-weight: 600; margin-bottom: 0.25rem;">Sarah Chen - Flexibility & Mobility</p>
+              <p class="text-muted" style="font-size: 0.9rem;">3 sessions completed • Rating: 5/5</p>
+            </div>
+            <div>
+              <p style="font-weight: 600; margin-bottom: 0.25rem;">David Martinez - Cardio & Weight Loss</p>
+              <p class="text-muted" style="font-size: 0.9rem;">3 sessions completed • Rating: 5/5</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Settings Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Account Settings</h2>
+          </div>
+          <div class="card-content">
+            <button class="btn btn-outline" onclick="alert('Change password clicked')"
+              style="width: 100%; text-align: left; padding: 0.75rem 1rem; margin-bottom: 0.5rem;">Change
+              Password</button>
+            <button class="btn btn-outline" onclick="alert('Notification settings clicked')"
+              style="width: 100%; text-align: left; padding: 0.75rem 1rem; margin-bottom: 0.5rem;">Notification
+              Settings</button>
+            <button class="btn btn-outline" onclick="alert('Privacy settings clicked')"
+              style="width: 100%; text-align: left; padding: 0.75rem 1rem; margin-bottom: 0.5rem;">Privacy
+              Settings</button>
+            <button class="btn btn-outline" onclick="alert('Delete account - account will be deleted')"
+              style="width: 100%; text-align: left; padding: 0.75rem 1rem; color: var(--danger-color); border-color: var(--danger-color);">Delete
+              Account</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 FitMatch. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+
+</html>

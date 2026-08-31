@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../styles.css">
+  <title>My Sessions - FitMatch</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <a href="../index.html" class="navbar-brand"> <img src="../images/logo.png" width="120" height="92"></a>
+
+        <ul class="nav-links">
+          <li><a href="browse-trainers.html" style="color: var(--primary-color); font-weight: 700;">Browse Trainers</a>
+          </li>
+          <li><a href="my-sessions.html">My Sessions</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="../login.html" class="btn btn-outline">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="section" style="background: var(--light-gray);">
+      <div class="container">
+        <h1 style="font-size: 2rem; font-weight: 700;">My Training Sessions</h1>
+        <p class="text-muted">Track all your past, current, and upcoming training sessions</p>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="section">
+      <div class="container">
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid var(--medium-gray);">
+          <button onclick="showTab('upcoming')" id="tab-upcoming" class="btn"
+            style="background: none; color: var(--primary-color); border: none; border-bottom: 3px solid var(--primary-color); padding: 0.75rem 0; border-radius: 0;">
+            Upcoming (5)
+          </button>
+          <button onclick="showTab('completed')" id="tab-completed" class="btn"
+            style="background: none; color: var(--text-light); border: none; padding: 0.75rem 0; border-radius: 0;">
+            Completed (12)
+          </button>
+          <button onclick="showTab('cancelled')" id="tab-cancelled" class="btn"
+            style="background: none; color: var(--text-light); border: none; padding: 0.75rem 0; border-radius: 0;">
+            Cancelled (2)
+          </button>
+        </div>
+
+        <!-- Upcoming Sessions -->
+        <div id="upcoming-tab">
+          <div class="session-item">
+            <div class="session-header">
+              <div>
+                <div class="session-title">Strength Training with Mike Johnson</div>
+                <span class="session-status status-upcoming">Scheduled</span>
+              </div>
+            </div>
+            <div class="session-details">
+              <div class="detail-item"><span class="detail-label">Date & Time:</span> Friday, June 21 • 7:00 PM</div>
+              <div class="detail-item"><span class="detail-label">Duration:</span> 45 minutes</div>
+              <div class="detail-item"><span class="detail-label">Location:</span> Downtown Gym</div>
+              <div class="detail-item"><span class="detail-label">Price:</span> $45</div>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <button class="btn btn-primary" ><a style="text-decoration: none; color: gray;"
+                  href="session-details.html">View Details</a></button>
+              <button class="btn btn-outline" onclick="alert('Rescheduled')">Reschedule</button>
+              <button class="btn btn-outline" onclick="alert('Cancelled')"
+                style="color: var(--danger-color); border-color: var(--danger-color);">Cancel</button>
+            </div>
+          </div>
+
+          <div class="session-item">
+            <div class="session-header">
+              <div>
+                <div class="session-title">Flexibility & Mobility with Sarah Chen</div>
+                <span class="session-status status-upcoming">Scheduled</span>
+              </div>
+            </div>
+            <div class="session-details">
+              <div class="detail-item"><span class="detail-label">Date & Time:</span> Monday, July 1 • 10:00 AM</div>
+              <div class="detail-item"><span class="detail-label">Duration:</span> 45 minutes</div>
+              <div class="detail-item"><span class="detail-label">Location:</span> Yoga Studio</div>
+              <div class="detail-item"><span class="detail-label">Price:</span> $45</div>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <button class="btn btn-primary" ><a style="text-decoration: none; color: gray;"
+                  href="session-details.html">View Details</a></button>
+              <button class="btn btn-outline" onclick="alert('Rescheduled')">Reschedule</button>
+              <button class="btn btn-outline" onclick="alert('Cancelled')"
+                style="color: var(--danger-color); border-color: var(--danger-color);">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Completed Sessions -->
+        <div id="completed-tab" class="hidden">
+          <div class="session-item" style="border-left-color: var(--success-color);">
+            <div class="session-header">
+              <div>
+                <div class="session-title">Weight Loss Cardio with David Martinez</div>
+                <span class="session-status status-completed">Completed</span>
+              </div>
+            </div>
+            <div class="session-details">
+              <div class="detail-item"><span class="detail-label">Date & Time:</span> Friday, June 21 • 7:00 PM</div>
+              <div class="detail-item"><span class="detail-label">Duration:</span> 45 minutes</div>
+              <div class="detail-item"><span class="detail-label">Your Rating:</span> 5/5 - Excellent session!</div>
+              <div class="detail-item"><span class="detail-label">Your Review:</span> Great workout, very motivating
+                trainer</div>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <button class="btn btn-primary" onclick="window.location.href='review.html'">View/Edit Review</button>
+              <button class="btn btn-outline" onclick="showTab('upcoming')">Book Again</button>
+            </div>
+          </div>
+
+          <div class="session-item" style="border-left-color: var(--success-color);">
+            <div class="session-header">
+              <div>
+                <div class="session-title">Strength Training with Mike Johnson</div>
+                <span class="session-status status-completed">Completed</span>
+              </div>
+            </div>
+            <div class="session-details">
+              <div class="detail-item"><span class="detail-label">Date & Time:</span> Wednesday, June 19 • 6:00 PM</div>
+              <div class="detail-item"><span class="detail-label">Duration:</span> 60 minutes</div>
+              <div class="detail-item"><span class="detail-label">Your Rating:</span> 5/5 - Fantastic!</div>
+              <div class="detail-item"><span class="detail-label">Your Review:</span> Mike is very knowledgeable and
+                professional</div>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <button class="btn btn-primary" onclick="window.location.href='review.html'">View/Edit Review</button>
+              <button class="btn btn-outline" onclick="showTab('upcoming')">Book Again</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cancelled Sessions -->
+        <div id="cancelled-tab" class="hidden">
+          <div class="session-item" style="border-left-color: var(--danger-color);">
+            <div class="session-header">
+              <div>
+                <div class="session-title">General Fitness with James Rodriguez</div>
+                <span class="session-status status-cancelled">Cancelled</span>
+              </div>
+            </div>
+            <div class="session-details">
+              <div class="detail-item"><span class="detail-label">Original Date:</span> Sunday, June 16 • 3:00 PM</div>
+              <div class="detail-item"><span class="detail-label">Cancelled By:</span> Customer</div>
+              <div class="detail-item"><span class="detail-label">Refund Status:</span> Refunded</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 FitMatch. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function showTab(tab) {
+        // Hide all tabs
+        document.getElementById('upcoming-tab').classList.add('hidden');
+        document.getElementById('completed-tab').classList.add('hidden');
+        document.getElementById('cancelled-tab').classList.add('hidden');
+
+        // Remove active styling
+        document.getElementById('tab-upcoming').style.color = 'var(--text-light)';
+        document.getElementById('tab-upcoming').style.borderBottom = 'none';
+        document.getElementById('tab-completed').style.color = 'var(--text-light)';
+        document.getElementById('tab-completed').style.borderBottom = 'none';
+        document.getElementById('tab-cancelled').style.color = 'var(--text-light)';
+        document.getElementById('tab-cancelled').style.borderBottom = 'none';
+
+        // Show selected tab and set active styling
+        if (tab === 'upcoming') {
+          document.getElementById('upcoming-tab').classList.remove('hidden');
+          document.getElementById('tab-upcoming').style.color = 'var(--primary-color)';
+          document.getElementById('tab-upcoming').style.borderBottom = '3px solid var(--primary-color)';
+        } else if (tab === 'completed') {
+          document.getElementById('completed-tab').classList.remove('hidden');
+          document.getElementById('tab-completed').style.color = 'var(--primary-color)';
+          document.getElementById('tab-completed').style.borderBottom = '3px solid var(--primary-color)';
+        } else if (tab === 'cancelled') {
+          document.getElementById('cancelled-tab').classList.remove('hidden');
+          document.getElementById('tab-cancelled').style.color = 'var(--primary-color)';
+          document.getElementById('tab-cancelled').style.borderBottom = '3px solid var(--primary-color)';
+        }
+      }
+    </script>
+  </div>
+</body>
+
+</html>

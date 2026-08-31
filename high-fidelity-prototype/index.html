@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="styles.css">
+  <title>FitMatch - Personal Trainers Matched to Your Goals</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <a href="index.html" class="navbar-brand"><img src="images/logo.png" width="120" height="92"></a>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="login.html" class="btn btn-outline">Login</a></li>
+          <li><a href="register.html" class="btn btn-outline">Get Started</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class=" hero">
+      <div class="hero-content">
+        <h1>Find Your Perfect Fitness Match</h1>
+        <p>Connect with certified trainers matched to your goals, constraints, and preferences. Your
+          personalized
+          fitness journey starts here.</p>
+        <div class="hero-buttons">
+          <a href="register.html" class="btn btn-light btn-large">I'm a Customer</a>
+          <a href="provider/register.html" class="btn btn-primary btn-large"
+            style="background-color: rgba(255,255,255,0.2); border: 2px solid white;">I'm a Trainer</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Trainers Grid -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 3rem; font-weight: 700;">Expert Trainers
+        </h2>
+        <div class="grid grid-3">
+
+          <!-- Trainer Card 1 -->
+          <div class="trainer-card">
+            <div class="trainer-image">
+              <img class="card-img-top" src="images/mike.jpg" height="220px" />
+            </div>
+            <div class="trainer-info">
+              <h3 class="trainer-name">Mike Johnson</h3>
+              <p class="trainer-specialty">Strength Training & Conditioning</p>
+              <div class="trainer-rating">4.9 / 5.0 (48 reviews)</div>
+              <div class="trainer-bio">NASM Certified. 8 years experience specializing in strength gains and muscle
+                building.</div>
+            </div>
+          </div>
+
+          <!-- Trainer Card 2 -->
+          <div class="trainer-card">
+            <div class="trainer-image"> <img class="card-img-top" src="images/sarah.jpg" height="220px" /></div>
+            <div class="trainer-info">
+              <h3 class="trainer-name">Sarah Chen</h3>
+              <p class="trainer-specialty">Flexibility, Yoga & Mobility</p>
+              <div class="trainer-rating">4.8 / 5.0 (52 reviews)</div>
+              <div class="trainer-bio">Certified Yoga Instructor & Physical Therapist. Expert in injury recovery and
+                flexibility training.</div>
+            </div>
+          </div>
+
+          <!-- Trainer Card 3 -->
+          <div class="trainer-card">
+            <div class="trainer-image"> <img class="card-img-top" src="images/david.jpg" height="220px" /></div>
+            <div class="trainer-info">
+              <h3 class="trainer-name">David Martinez</h3>
+              <p class="trainer-specialty">Weight Loss & Cardio</p>
+              <div class="trainer-rating">4.7 / 5.0 (36 reviews)</div>
+              <div class="trainer-bio">ACE Certified Personal Trainer. 5 years helping clients achieve sustainable
+                weight
+                loss.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- How It Works -->
+    <section class="section section-light" id="how-it-works">
+      <div class="container">
+        <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 3rem; font-weight: 700;">How It Works
+        </h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="card-content">
+              <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">1</div>
+              <h3 style="font-weight: 700; margin-bottom: 1rem;">Create Your Profile</h3>
+              <p>Sign up and tell us about your fitness goals, constraints, and preferences. What are you
+                looking to
+                achieve?</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 1rem;">2</div>
+              <h3 style="font-weight: 700; margin-bottom: 1rem;">Browse Trainers</h3>
+              <p>View certified trainers matched to your needs. Check their experience, certifications, and
+                customer
+                reviews.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div style="font-size: 3rem; color: var(--success-color); margin-bottom: 1rem;">3</div>
+              <h3 style="font-weight: 700; margin-bottom: 1rem;">Book & Train</h3>
+              <p>Schedule sessions that fit your availability. Get personalized guidance from your matched
+                trainer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--primary-color); color: white; text-align: center;">
+      <div class="container">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: white;">Ready to Transform Your Fitness?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Join hundreds of customers finding their perfect
+          fitness
+          match.</p>
+        <a href="register.html" class="btn btn-primary btn-large"
+          style="background-color: white; color: var(--primary-color);">Start Free Today</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 FitMatch. All rights reserved. Connecting customers with certified fitness professionals.
+      </p>
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../styles.css">
+  <title>Trainer Profile - FitMatch</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <a href="../index.html" class="navbar-brand"> <img src="../images/logo.png" width="120" height="92"></a>
+        <ul class="nav-links">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="manage-services.html">My Services</a></li>
+          <li><a href="view-clients.html">My Clients</a></li>
+          <li><a href="profile.html" style="color: var(--primary-color); font-weight: 700;">Profile</a></li>
+          <li><a href="../login.html" class="btn btn-outline">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="section" style="background: var(--light-gray);">
+      <div class="container">
+        <h1 style="font-size: 2rem; font-weight: 700;">My Trainer Profile</h1>
+        <p class="text-muted">Manage how you appear to potential clients</p>
+      </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+
+        <!-- Personal Info Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Personal Information</h2>
+          </div>
+          <div class="card-content">
+            <div class="grid grid-2">
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.25rem;">First Name</p>
+                <p style="font-weight: 600;">Mike</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.25rem;">Last Name</p>
+                <p style="font-weight: 600;">Johnson</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.25rem;">Email</p>
+                <p style="font-weight: 600;">mike@example.com</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.25rem;">Phone</p>
+                <p style="font-weight: 600;">+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <button class="btn btn-outline" style="margin-top: 1rem;" onclick="window.location.href='edit-details.html'">Edit Personal Info</button>
+          </div>
+        </div>
+
+        <!-- Professional Info Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Professional Information</h2>
+          </div>
+          <div class="card-content">
+            <div style="margin-bottom: 1rem;">
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Certifications:</strong></p>
+              <p style="font-weight: 600; margin-bottom: 1rem;">NASM Certified Personal Trainer, ISSA Nutrition
+                Certification, TRX Suspension Training</p>
+
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Years of Experience:</strong></p>
+              <p style="font-weight: 600; margin-bottom: 1rem;">8 years</p>
+
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Specializations:</strong></p>
+              <p style="font-weight: 600; margin-bottom: 1rem;">Strength Training, Muscle Building, Powerlifting,
+                Athletic Performance</p>
+
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Professional Bio:</strong></p>
+              <p style="font-weight: 600; margin-bottom: 1rem;">I'm passionate about helping clients build strength and
+                achieve their fitness goals through progressive training and proper nutrition. With 8 years of
+                experience and multiple certifications, I create personalized programs tailored to each client's needs
+                and preferences.</p>
+            </div>
+            <button class="btn btn-outline">Edit Professional Info</button>
+          </div>
+        </div>
+
+        <!-- Rates & Services Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Rates & Services</h2>
+          </div>
+          <div class="card-content">
+            <div class="grid grid-2">
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Base Rate:</strong></p>
+                <p style="font-weight: 600;">$60/hour</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Package Discounts:</strong></p>
+                <p style="font-weight: 600;">10% off 5-pack, 15% off 10-pack</p>
+              </div>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--medium-gray);">
+              <p class="text-muted" style="margin-bottom: 0.5rem;"><strong>Active Services (3):</strong></p>
+              <ul style="margin: 0; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>Strength Training Program</strong> - $60/session</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Circuit Training & Conditioning</strong> - $45/session</li>
+                <li><strong>Personal Nutrition & Fitness Consultation</strong> - $40/session</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline" style="margin-top: 1rem;" onclick="openServices()">Manage Services</button>
+          </div>
+        </div>
+
+        <!-- Availability Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Availability</h2>
+          </div>
+          <div class="card-content">
+            <div class="grid grid-2">
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;">Monday - Friday</p>
+                <p style="font-weight: 600;">6:00 AM - 8:00 PM</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;">Saturday</p>
+                <p style="font-weight: 600;">8:00 AM - 6:00 PM</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;">Sunday</p>
+                <p style="font-weight: 600;">Closed</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;">Vacation Days</p>
+                <p style="font-weight: 600;">None scheduled</p>
+              </div>
+            </div>
+            <button class="btn btn-outline" style="margin-top: 1rem;">Edit Availability</button>
+          </div>
+        </div>
+
+        <!-- Profile Visibility Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Profile Visibility</h2>
+          </div>
+          <div class="card-content">
+            <div style="margin-bottom: 1rem;">
+              <label style="display: flex; align-items: center; margin: 0; font-weight: 600;">
+                <input type="radio" name="visibility" value="visible" checked
+                  style="width: auto; margin-right: 0.75rem;"> Visible to all customers
+              </label>
+              <p class="text-muted" style="margin: 0.5rem 0 1rem 2rem; font-size: 0.9rem;">Customers can find and book
+                your services</p>
+            </div>
+            <div>
+              <label style="display: flex; align-items: center; margin: 0; font-weight: 600;">
+                <input type="radio" name="visibility" value="hidden" style="width: auto; margin-right: 0.75rem;"> Hidden
+                from searches
+              </label>
+              <p class="text-muted" style="margin: 0.5rem 0 0 2rem; font-size: 0.9rem;">Only existing clients can book
+                sessions</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics Card -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Profile Statistics</h2>
+          </div>
+          <div class="card-content">
+            <div class="grid grid-2">
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;">Profile Views (Month)</p>
+                <p style="font-weight: 600; font-size: 1.3rem;">156</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;">Overall Rating</p>
+                <p style="font-weight: 600; font-size: 1.3rem;">4.9/5 ⭐</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;">Total Reviews</p>
+                <p style="font-weight: 600; font-size: 1.3rem;">48</p>
+              </div>
+              <div>
+                <p class="text-muted" style="margin-bottom: 0.5rem;">Response Rate</p>
+                <p style="font-weight: 600; font-size: 1.3rem;">98%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Settings Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Account Settings</h2>
+          </div>
+          <div class="card-content">
+            <button class="btn btn-outline" onclick="alert('Change password clicked')"
+              style="width: 100%; text-align: left; padding: 0.75rem 1rem; margin-bottom: 0.5rem;">Change
+              Password</button>
+            <button class="btn btn-outline" onclick="alert('Notification settings clicked')"
+              style="width: 100%; text-align: left; padding: 0.75rem 1rem; margin-bottom: 0.5rem;">Notification
+              Settings</button>
+            <button class="btn btn-outline" onclick="alert('Payout settings clicked')"
+              style="width: 100%; text-align: left; padding: 0.75rem 1rem; margin-bottom: 0.5rem;">💳 Payout
+              Settings</button>
+            <button class="btn btn-outline" onclick="alert('Delete account - account will be deleted')"
+              style="width: 100%; text-align: left; padding: 0.75rem 1rem; color: var(--danger-color); border-color: var(--danger-color);">Delete
+              Account</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 FitMatch. All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+
+    function openServices(){
+      window.location.href = 'manage-services.html';
+    }
+  </script>
+</body>
+
+</html>

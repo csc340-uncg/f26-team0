@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
+  <title>Trainer Profile - FitMatch</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <a href="../index.html" class="navbar-brand"> <img src="../images/logo.png" width="120" height="92"></a>
+
+        <ul class="nav-links">
+          <li><a href="browse-trainers.html" style="color: var(--primary-color); font-weight: 700;">Browse Trainers</a>
+          </li>
+          <li><a href="my-sessions.html">My Sessions</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="../login.html" class="btn btn-outline">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <section class="section" style="background: var(--primary-color); color: white;">
+      <div class="container">
+        <div class="grid grid-2" style="align-items: center;">
+          <div>
+            <img class="card-img-top" src="../images/mike.jpg" style="width: 200px; height: 200px;" />
+          </div>
+          <div>
+            <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: white;" id="trainer-name">Mike
+              Johnson</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 1rem; color: white;" id="trainer-specialty">
+              Strength
+              Training & Muscle Building</p>
+            <div style="display: flex; gap: 2rem;">
+              <div>
+                <p style="opacity: 0.8; margin-bottom: 0.25rem;">Rating</p>
+                <p style="font-size: 1.5rem; font-weight: 700;"> 4.9/5</p>
+              </div>
+              <div>
+                <p style="opacity: 0.8; margin-bottom: 0.25rem;">Reviews</p>
+                <p style="font-size: 1.5rem; font-weight: 700;">48</p>
+              </div>
+              <div>
+                <p style="opacity: 0.8; margin-bottom: 0.25rem;">Hourly Rate</p>
+                <p style="font-size: 1.5rem; font-weight: 700;">$60</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-3" style="gap: 2rem;">
+
+          <!-- Left Column - About & Experience -->
+          <div style="grid-column: span 2;">
+
+            <!-- About -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <div class="card-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700;">About</h2>
+              </div>
+              <div class="card-content">
+                <p id="trainer-bio" style="line-height: 1.6; color: #666;">
+                  Passionate fitness professional with 8+ years of experience helping clients achieve their strength
+                  training goals. Specialized in compound lifts, progressive overload, and personalized program design.
+                  Dedicated to creating sustainable fitness habits and building lasting relationships with clients.
+                </p>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <div class="card-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700;">Certifications</h2>
+              </div>
+              <div class="card-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                  <span class="badge"
+                    style="background: var(--primary-light); color: var(--primary-color); padding: 0.5rem 1rem; border-radius: 20px;">NASM
+                    Certified Personal Trainer</span>
+                  <span class="badge"
+                    style="background: var(--secondary-light); color: var(--secondary-color); padding: 0.5rem 1rem; border-radius: 20px;">ACE
+                    Certification</span>
+                  <span class="badge"
+                    style="background: var(--success-light); color: var(--success-color); padding: 0.5rem 1rem; border-radius: 20px;">TRX
+                    Suspension Training</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <div class="card-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700;">Experience</h2>
+              </div>
+              <div class="card-content">
+                <p><strong>Years of Experience:</strong> 8+ years</p>
+                <p style="margin-top: 1rem; color: #666;">
+                  Mike has worked with over 150+ clients, helping them transform their fitness, build strength, and
+                  achieve their goals. His client retention rate is exceptional, with many long-term training
+                  relationships.
+                </p>
+              </div>
+            </div>
+
+            <!-- Specializations -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <div class="card-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700;">Specializations</h2>
+              </div>
+              <div class="card-content">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                  <div style="padding: 1rem; background: var(--light-gray); border-radius: var(--border-radius);">
+                    <p style="font-weight: 600;"> Strength Training</p>
+                  </div>
+                  <div style="padding: 1rem; background: var(--light-gray); border-radius: var(--border-radius);">
+                    <p style="font-weight: 600;"> Muscle Building</p>
+                  </div>
+                  <div style="padding: 1rem; background: var(--light-gray); border-radius: var(--border-radius);">
+                    <p style="font-weight: 600;"> Power Training</p>
+                  </div>
+                  <div style="padding: 1rem; background: var(--light-gray); border-radius: var(--border-radius);">
+                    <p style="font-weight: 600;"> Athletic Performance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Client Reviews -->
+            <div class="card">
+              <div class="card-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700;">Client Reviews</h2>
+              </div>
+              <div class="card-content">
+
+                <!-- Review 1 -->
+                <div style="padding: 1.5rem; border-bottom: 1px solid var(--light-gray);">
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+                    <p style="font-weight: 600;">John Smith</p>
+                    <p style="color: var(--secondary-color); font-weight: 600;">⭐⭐⭐⭐⭐</p>
+                  </div>
+                  <p style="font-size: 0.9rem; color: #999; margin-bottom: 0.75rem;">3 weeks ago</p>
+                  <p style="color: #666; line-height: 1.5;">
+                    "Mike is an incredible trainer! He designed a personalized program that respects my schedule and
+                    keeps
+                    me motivated. Already seeing great results!"
+                  </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div style="padding: 1.5rem; border-bottom: 1px solid var(--light-gray);">
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+                    <p style="font-weight: 600;">Sarah Davis</p>
+                    <p style="color: var(--secondary-color); font-weight: 600;">⭐⭐⭐⭐⭐</p>
+                  </div>
+                  <p style="font-size: 0.9rem; color: #999; margin-bottom: 0.75rem;">2 months ago</p>
+                  <p style="color: #666; line-height: 1.5;">
+                    "Professional, knowledgeable, and fun! Mike makes every session count. My strength has improved
+                    dramatically under his coaching."
+                  </p>
+                </div>
+
+                <!-- Review 3 -->
+                <div style="padding: 1.5rem;">
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+                    <p style="font-weight: 600;">Michael Brown</p>
+                    <p style="color: var(--secondary-color); font-weight: 600;">⭐⭐⭐⭐⭐</p>
+                  </div>
+                  <p style="font-size: 0.9rem; color: #999; margin-bottom: 0.75rem;">3 months ago</p>
+                  <p style="color: #666; line-height: 1.5;">
+                    "Best investment in my fitness! Mike's attention to form and progressive programming is unmatched.
+                    Highly recommended!"
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column - Booking & Availability -->
+          <div>
+
+            <!-- Availability -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <div class="card-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700;">Availability</h2>
+              </div>
+              <div class="card-content">
+                <div style="margin-bottom: 1rem;">
+                  <p style="font-weight: 600; margin-bottom: 0.5rem;">Monday - Friday</p>
+                  <p style="color: #666;">6:00 AM - 8:00 PM</p>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                  <p style="font-weight: 600; margin-bottom: 0.5rem;">Saturday</p>
+                  <p style="color: #666;">8:00 AM - 6:00 PM</p>
+                </div>
+                <div style="padding-top: 1rem; border-top: 1px solid var(--light-gray);">
+                  <p style="font-weight: 600; color: var(--success-color);">Available This Week</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Session Rate -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <div class="card-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700;">Session Rates</h2>
+              </div>
+              <div class="card-content">
+                <div style="margin-bottom: 1rem;">
+                  <p style="font-size: 1.2rem; font-weight: 700; color: var(--primary-color);">$60 <span
+                      style="font-size: 1rem; color: #666;">/session</span></p>
+                </div>
+                <div
+                  style="background: var(--light-gray); padding: 1rem; border-radius: var(--border-radius); margin-bottom: 1rem;">
+                  <p style="font-weight: 600; margin-bottom: 0.5rem;">Package Discounts:</p>
+                  <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.25rem;">• 5-session pack: 10% off ($270)
+                  </p>
+                  <p style="font-size: 0.9rem; color: #666;">• 10-session pack: 15% off ($510)</p>
+                </div>
+                <p style="font-size: 0.85rem; color: #999;">Prices include program design & form coaching</p>
+              </div>
+            </div>
+
+            <!-- Book Session Button -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <div class="card-content">
+                <button class="btn btn-primary" onclick="bookSession()"
+                  style="width: 100%; padding: 1rem; font-size: 1.1rem; font-weight: 600;">
+                  Book a Session
+                </button>
+              </div>
+            </div>
+
+            <!-- Message Trainer -->
+            <div class="card">
+              <div class="card-content">
+                <button class="btn btn-outline" onclick="messageTrainer()"
+                  style="width: 100%; padding: 1rem; font-size: 1.1rem; font-weight: 600;">
+                  Message Trainer
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 FitMatch. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+      function bookSession() {
+        alert('Session booked! Redirecting to My Sessions page.');
+        window.location.href = 'my-sessions.html';
+      }
+
+      function messageTrainer() {
+        alert('Opening message conversation with ' + trainer.name);
+      }
+    </script>
+  </div>
+</body>
+
+</html>

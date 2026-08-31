@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../styles.css">
+  <title>Review - FitMatch</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <a href="../index.html" class="navbar-brand"> <img src="../images/logo.png" width="120" height="92"></a>
+
+        <ul class="nav-links">
+          <li><a href="browse-trainers.html" style="color: var(--primary-color); font-weight: 700;">Browse Trainers</a>
+          </li>
+          <li><a href="my-sessions.html">My Sessions</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="../login.html" class="btn btn-outline">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="section" style="background: var(--light-gray);">
+      <div class="container">
+        <h1 style="font-size: 2rem; font-weight: 700;">Session Review</h1>
+        <p class="text-muted">View and edit your review for the training session</p>
+      </div>
+    </section>
+    <!-- Review Section -->
+    <section class="section">
+      <div class="container" style="max-width: 600px;">
+        <div class="card">
+          <div class="card-content">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Your Review for Yoga with Sarah</h2>
+            <div class="form-group">
+              <label for="rating">Rating (1-5)</label>
+              <input type="number" id="rating" min="1" max="5" value="5" required>
+            </div>
+            <div class="form-group">
+              <label for="review">Your Review</label>
+              <textarea id="review" rows="4" required>Great session!</textarea>
+            </div>
+            <button class="btn btn-primary" onclick="updateReview()">Update Review</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script>
+    function updateReview() {
+      alert('Review updated! Thank you for your feedback.');
+      window.location.href = 'my-sessions.html'; // Redirect to My Sessions page after updating the review
+    }
+  </script>
+</body>
+
+</body>
+
+</html>
