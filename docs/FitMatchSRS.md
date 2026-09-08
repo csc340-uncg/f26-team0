@@ -92,7 +92,8 @@
 ### 2.2 Provider (Trainer) Stories
 
 - **US-5 - Create and update trainer profile**
-  _Story:_ As a trainer, I want to create and update my profile, so that I can attract clients.
+
+  _Story:_ As a trainer, I want to create and update my profile so that I can attract clients.
 
   _Acceptance:_
   ```gherkin
@@ -105,7 +106,7 @@
 
 - **US-6 - Define services and pricing**
 
-  _Story:_ As a trainer, I want to define my services and pricing, so that customers understand my offerings.
+  _Story:_ As a trainer, I want to define my services and pricing so that customers understand my offerings.
 
   _Acceptance:_
   ```gherkin
@@ -117,7 +118,7 @@
 
 - **US-7 - Respond to reviews**
 
-  _Story:_ As a trainer, I want to respond to reviews, so that I can engage with clients.
+  _Story:_ As a trainer, I want to respond to reviews so that I can engage with clients.
 
   _Acceptance:_
   ```gherkin
@@ -138,10 +139,11 @@
     When I access the dashboard
     Then I should see relevant data about my customers' progress and engagement
   ```
+
 ---
 
-## 3. Non‑Functional Requirements
-- **Performance:** 95% of discovery responses should be returned in < 2 seconds under typical load.
+## 3. Non-Functional Requirements
+- **Performance:** 95% of discovery responses should be returned in less than 2 seconds under typical load.
 - **Availability/Reliability:** The system should be available 99.5% of the time, with planned maintenance windows communicated in advance.
 - **Security/Privacy:** The system must implement secure authentication and authorization mechanisms. All sensitive data should be encrypted in transit and at rest.
 - **Usability:** New users should be able to complete the registration process and book a session within 5 minutes without external assistance.
@@ -149,18 +151,18 @@
 ---
 
 ## 4. Assumptions, Constraints, and Policies
-- Modern browsers (latest Chrome/Firefox/Edge/Safari); stable connectivity.
-- Course timeline & campus infrastructure constraints apply.
+- Modern browsers (latest Chrome/Firefox/Edge/Safari) and stable connectivity.
+- Course timeline and campus infrastructure constraints apply.
 
 ---
 
-## 5. Milestones (course‑aligned)
-- **M1 Requirements** — this file + stories opened as issues.
-- **M2 High‑fidelity prototype** — core customer/provider UI flows fully interactive.
-- **M3 Design** — architecture, schema, API outline.
-- **M4 Backend API** — key endpoints + tests.
-- **M5 Increment** — ≥2 use cases end‑to‑end.
-- **M6 Final** — complete system & documentation.
+## 5. Milestones (course-aligned)
+- **M1 Requirements** — this file and related stories opened as issues.
+- **M2 High-fidelity prototype** — core customer and provider UI flows are fully interactive.
+- **M3 Design** — architecture, schema, and API outline.
+- **M4 Backend API** — key endpoints and tests.
+- **M5 Increment** — at least 2 use cases end-to-end.
+- **M6 Final** — complete system and documentation.
 
 ---
 
