@@ -13,14 +13,14 @@ FitMatch is a personalized trainer‑matching platform designed to help adults f
 
 ## App Functions
 1. Customer:
-    1. **Create/modify customer profile** - Register as a customer and define fitness goals, constraints, and preferences.
+    1. **Create,modify customer profile** - Register as a customer and define fitness goals, constraints, and preferences.
     2. **View available services** - Browse trainers by specialization (strength, rehab, weight loss, etc.), certifications, and availability.
     3. **Subscribe to available services** - Book one‑time or recurring training sessions with selected providers.
     4. **Write reviews for subscribed services** - Leave feedback on training quality, communication, and progress.
 2. Provider (Trainer):
-    1. **Create/modify/remove provider profile** - Register as a trainer and showcase certifications, experience, and coaching style.
+    1. **Create,modify,remove provider profile** - Register as a trainer and showcase certifications, experience, and coaching style.
     2. **Create services** - Publish training offerings and availability windows.
-    3. **View customer statistics** -  View client goals, session history, and engagement trends.
+    3. **View customer statistics** - View client goals, session history, and engagement trends.
     4. **Reply to reviews** - Respond professionally to customer feedback.
 3. SysAdmin:
     1. **Manage user access** - Approve, suspend, or reinstate customer and provider accounts.
