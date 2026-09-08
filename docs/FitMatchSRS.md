@@ -9,41 +9,41 @@
 ---
 
 ## 1. Overview
-**Vision.** FitMatch is a personalized trainer‑matching platform designed to help adults find certified fitness professionals who align with their goals, schedule, and coaching preferences. The system supports customers seeking structured fitness or rehabilitation guidance, as well as providers (trainers and wellness coaches) who want to offer tailored training services.
+**Vision.** FitMatch is a personalized trainer-matching platform designed to help adults find certified fitness professionals who align with their goals, schedules, and coaching preferences. The system supports customers seeking structured fitness or rehabilitation guidance, as well as providers (trainers and wellness coaches) who want to offer tailored training services.
 
-**Glossary** Terms used in the project
+**Glossary:** Terms used in the project
 - **Trainer:** The fitness professional who provides training services to customers.
 - **Customer:** A person seeking fitness or rehabilitation guidance.
 - **Profile:** A collection of information about a user, including personal details, fitness goals, and preferences.
 - **Services:** The specific training or coaching offerings provided by a trainer.
 - **Session:** A scheduled appointment between a customer and a trainer for training or coaching.
 
-**Primary Users / Roles.**
-- **Customer** - Find trainers aligned with goals and constraints.
+**Primary Users and Roles:**
+- **Customer** - Find trainers aligned with personal goals and constraints.
 - **Trainer** — Attract clients and manage services.
 - **SysAdmin** — Maintain platform quality and security.
 
-**Scope (this semester).**
-- User profiles (customers & trainers)
-- Search/browse trainers by goals
+**Scope (this semester):**
+- User profiles (customers and trainers)
+- Search and browse trainers by goals
 - Booking training sessions
 - Basic progress tracking (text notes)
 - Reviews and ratings
 
-**Out of scope (deferred).**
+**Out of scope (deferred):**
 - Nutrition plans
-- Group classes or multi client sessions
+- Group classes or multi-client sessions
 
-> This document is **requirements‑level** and solution‑neutral; design decisions (UI layouts, API endpoints, schemas) are documented separately.
+> This document is **requirements-level** and solution-neutral; design decisions (UI layouts, API endpoints, schemas) are documented separately.
 
 ---
 
 ## 2. Functional Requirements (User Stories)
 
 ### 2.1 Customer Stories
-- **US‑1 - Register & manage profile**
+- **US-1 - Register and manage profile**
 
-  _Story:_ As a customer, I want to create a fitness profile, so that trainers can understand my goals and constraints.
+  _Story:_ As a customer, I want to create a fitness profile so that trainers can understand my goals and constraints.
 
   _Acceptance:_
   ```gherkin
@@ -53,7 +53,7 @@
     Then I should be successfully registered and logged in
   ```
 
-- **US‑2 - Browse trainers by goal category**
+- **US-2 - Browse trainers by goal category**
 
   _Story:_ As a customer, I want to browse trainers by goal category so that I can quickly find relevant matches.
 
@@ -79,15 +79,16 @@
 
 - **US-4 - Write a review after a session**
 
-    _Story:_ As a customer, I want to write a review after a session so that others can benefit from my experience.
+  _Story:_ As a customer, I want to write a review after a session so that others can benefit from my experience.
 
-    _Acceptance:_
+  _Acceptance:_
   ```gherkin
-    Scenario: Write a review after a session
-      Given I have completed a training session with a trainer
-      When I submit a review for that session
-      Then the review should be saved and visible to other customers
+  Scenario: Write a review after a session
+    Given I have completed a training session with a trainer
+    When I submit a review for that session
+    Then the review should be saved and visible to other customers
   ```
+
 ### 2.2 Provider (Trainer) Stories
 
 - **US-5 - Create and update trainer profile**
