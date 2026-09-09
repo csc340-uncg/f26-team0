@@ -51,6 +51,7 @@
     Given I am not registered
     When I provide valid registration details
     Then I should be successfully registered and logged in
+    And I can view my profile
   ```
 
 - **US-2 - Browse trainers by goal category**
@@ -75,6 +76,7 @@
     Given I am logged in as a customer
     When I select a trainer and choose an available time slot
     Then I should receive a confirmation of the booked session
+    And I can view the booked session on my dashboard
   ```
 
 - **US-4 - Write a review after a session**
