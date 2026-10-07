@@ -97,4 +97,10 @@ public class TrainingCatalogService {
             throw new NotFoundException("Trainer " + trainerId + " was not found.");
         }
     }
+
+    public List<TrainingServiceResponse> listPublished() {
+        return trainingServiceRepository
+                .findAllByStatusIgnoreCaseOrderById("PUBLISHED")
+                .stream().map(TrainingServiceResponse::from).toList();
+    }
 }

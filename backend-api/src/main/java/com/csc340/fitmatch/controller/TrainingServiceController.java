@@ -19,7 +19,10 @@ public class TrainingServiceController {
     }
 
     @GetMapping
-    public List<TrainingServiceResponse> browse(@RequestParam String category) {
+    public List<TrainingServiceResponse> browse(@RequestParam(required = false) String category) {
+        if (category == null || category.isBlank()) {
+            return catalogService.listPublished();
+        }
         return catalogService.listPublishedByCategory(category.trim());
     }
 }
