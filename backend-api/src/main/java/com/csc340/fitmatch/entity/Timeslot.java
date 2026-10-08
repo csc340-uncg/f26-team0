@@ -8,14 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "timeslots")
@@ -41,8 +39,8 @@ public class Timeslot {
     @JoinColumn(name = "trainer_id", nullable = false)
     private Trainer trainer;
 
-    @OneToMany(mappedBy = "timeslot", fetch = FetchType.LAZY)
-    private List<TrainingSession> trainingSessions = new ArrayList<>();
+    @OneToOne(mappedBy = "timeslot", fetch = FetchType.LAZY)
+    private TrainingSession trainingSession;
 
     public Timeslot() {
     }
@@ -89,13 +87,16 @@ public class Timeslot {
     }
 
     public TrainingSession getBookedTrainingSession() {
-        return trainingSessions.stream()
-                .filter(session -> "BOOKED".equalsIgnoreCase(session.getStatus()))
-                .findFirst()
-                .orElse(null);
+        return trainingSession != null && "BOOKED".equalsIgnoreCase(trainingSession.getStatus())
+                ? trainingSession
+                : null;
     }
 
-    public List<TrainingSession> getTrainingSessions() {
-        return trainingSessions;
+    public TrainingSession getTrainingSession() {
+        return trainingSession;
+    }
+
+    public void setTrainingSession(TrainingSession trainingSession) {
+        this.trainingSession = trainingSession;
     }
 }

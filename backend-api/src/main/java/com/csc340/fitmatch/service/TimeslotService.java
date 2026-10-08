@@ -49,7 +49,7 @@ public class TimeslotService {
             throw new NotFoundException("Timeslot " + timeslotId + " was not found for trainer "
                     + trainerId + ".");
         }
-        if (!timeslot.getTrainingSessions().isEmpty()) {
+        if (timeslot.getTrainingSession() != null) {
             throw new ConflictException("A booked timeslot cannot be edited.");
         }
         validateRange(request.startTime(), request.endTime());
@@ -63,7 +63,7 @@ public class TimeslotService {
             throw new NotFoundException("Timeslot " + timeslotId + " was not found for trainer "
                     + trainerId + ".");
         }
-        if (!timeslot.getTrainingSessions().isEmpty()) {
+        if (timeslot.getTrainingSession() != null) {
             throw new ConflictException("A booked timeslot cannot be deleted.");
         }
         timeslotRepository.delete(timeslot);

@@ -87,6 +87,7 @@ public class TrainingSessionService {
         session.setStatus("CANCELLED");
         Timeslot timeslot = lockTimeslot(session.getTimeslot().getId());
         timeslot.setIsAvailable(true);
+        session.setTimeslot(null);
         return TrainingSessionResponse.from(sessionRepository.save(session));
     }
 

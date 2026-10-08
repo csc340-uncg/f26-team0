@@ -25,6 +25,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -94,13 +95,17 @@ class TrainingSessionServiceIntegrationTests {
                 new BookSessionRequest(trainingService.getId(), timeslot.getId(), null, null, null));
         assertFalse(timeslotRepository.findById(timeslot.getId()).orElseThrow().getIsAvailable());
 
-        sessionService.cancel(firstCustomer.getId(), firstBooking.id());
+        var cancelledBooking = sessionService.cancel(firstCustomer.getId(), firstBooking.id());
         assertTrue(timeslotRepository.findById(timeslot.getId()).orElseThrow().getIsAvailable());
+        assertNull(cancelledBooking.timeslotId());
+        assertNull(sessionRepository.findById(firstBooking.id()).orElseThrow().getTimeslot());
 
-        sessionService.book(nextCustomer.getId(),
+        var nextBooking = sessionService.book(nextCustomer.getId(),
                 new BookSessionRequest(trainingService.getId(), timeslot.getId(), null, null, null));
         assertEquals(2, sessionRepository.findAllByCustomerIdOrderByIdDesc(firstCustomer.getId()).size()
                 + sessionRepository.findAllByCustomerIdOrderByIdDesc(nextCustomer.getId()).size());
+        assertEquals(timeslot.getId(),
+                sessionRepository.findById(nextBooking.id()).orElseThrow().getTimeslot().getId());
     }
 
     @Test

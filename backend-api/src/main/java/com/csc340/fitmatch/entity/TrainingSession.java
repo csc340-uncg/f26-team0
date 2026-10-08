@@ -48,9 +48,8 @@ public class TrainingSession {
     @JoinColumn(name = "training_service_id", nullable = false)
     private TrainingService trainingService;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "timeslot_id", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "timeslot_id", nullable = true, unique = true)
     private Timeslot timeslot;
 
     @OneToOne(mappedBy = "trainingSession", fetch = FetchType.LAZY)
@@ -116,7 +115,13 @@ public class TrainingSession {
     }
 
     public void setTimeslot(Timeslot timeslot) {
+        if (this.timeslot != null && this.timeslot.getTrainingSession() == this) {
+            this.timeslot.setTrainingSession(null);
+        }
         this.timeslot = timeslot;
+        if (timeslot != null && timeslot.getTrainingSession() != this) {
+            timeslot.setTrainingSession(this);
+        }
     }
 
     public Review getReview() {
