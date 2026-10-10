@@ -1,5 +1,9 @@
 # FitMatch backend API
 
+# UML Class Diagram
+![Class Diagram](../docs/uml-class.png)
+
+# API Overview
 The API base path is `/api`. JSON request bodies are validated; validation errors
 return `400`, missing resources `404`, and duplicate or invalid state transitions
 `409`.
