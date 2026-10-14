@@ -130,3 +130,26 @@ Content-Type: application/json
 
 Booking and rescheduling lock the selected slot while checking and updating
 availability, preventing simultaneous requests from booking the same slot.
+
+## Direct entity API
+
+The alternate API is available under `/api/direct` and exposes the same routes
+using entity request and response bodies. For example, a session booking uses
+the entity relationship shape:
+
+```http
+POST /api/direct/customers/{customerId}/sessions
+Content-Type: application/json
+
+{
+  "trainingService": { "id": 123 },
+  "timeslot": { "id": 456 },
+  "notes": "Focus on mobility",
+  "level": "Intermediate",
+  "location": "Fitness studio"
+}
+```
+
+The `id` values in relationship objects identify existing records. Passwords
+are accepted for customer and trainer registration and are excluded from
+responses. Entity relationships that would create recursive JSON are omitted.

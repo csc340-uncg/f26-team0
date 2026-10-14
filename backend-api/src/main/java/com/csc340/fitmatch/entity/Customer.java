@@ -1,5 +1,7 @@
 package com.csc340.fitmatch.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -43,6 +45,7 @@ public class Customer {
     @NotBlank
     @Size(max = 255)
     @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @NotBlank
@@ -73,9 +76,11 @@ public class Customer {
     private String injuriesOrHealthConcerns;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<TrainingSession> trainingSessions = new ArrayList<>();
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Review> reviews = new ArrayList<>();
 
     public Customer() {

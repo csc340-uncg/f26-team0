@@ -1,5 +1,6 @@
 package com.csc340.fitmatch.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -40,6 +41,7 @@ public class Timeslot {
     private Trainer trainer;
 
     @OneToOne(mappedBy = "timeslot", fetch = FetchType.LAZY)
+    @JsonIgnore
     private TrainingSession trainingSession;
 
     public Timeslot() {
@@ -86,12 +88,14 @@ public class Timeslot {
         this.trainer = trainer;
     }
 
+    @JsonIgnore
     public TrainingSession getBookedTrainingSession() {
         return trainingSession != null && "BOOKED".equalsIgnoreCase(trainingSession.getStatus())
                 ? trainingSession
                 : null;
     }
 
+    @JsonIgnore
     public TrainingSession getTrainingSession() {
         return trainingSession;
     }

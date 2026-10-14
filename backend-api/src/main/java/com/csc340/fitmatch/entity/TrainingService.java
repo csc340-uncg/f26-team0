@@ -1,5 +1,6 @@
 package com.csc340.fitmatch.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -57,6 +58,7 @@ public class TrainingService {
     private Trainer trainer;
 
     @OneToMany(mappedBy = "trainingService", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<TrainingSession> trainingSessions = new ArrayList<>();
 
     public TrainingService() {
