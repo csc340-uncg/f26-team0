@@ -1,5 +1,6 @@
 package com.csc340.fitmatch.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -53,6 +54,7 @@ public class TrainingSession {
     private Timeslot timeslot;
 
     @OneToOne(mappedBy = "trainingSession", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Review review;
 
     public TrainingSession() {
