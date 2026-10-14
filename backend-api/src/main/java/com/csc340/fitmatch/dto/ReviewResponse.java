@@ -13,12 +13,14 @@ public record ReviewResponse(
         Long customerId,
         String customerName,
         Long trainerId,
+        String trainerName,
         Long trainingSessionId) {
 
     public static ReviewResponse from(Review review) {
         return new ReviewResponse(review.getId(), review.getRating(), review.getComments(),
                 review.getReplyText(), review.getReviewDate(), review.getCustomer().getId(),
                 review.getCustomer().getName(), review.getTrainer().getId(),
+                review.getTrainer().getName(),
                 review.getTrainingSession().getId());
     }
 }

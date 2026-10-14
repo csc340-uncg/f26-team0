@@ -93,6 +93,7 @@ class TrainingSessionServiceIntegrationTests {
 
         var firstBooking = sessionService.book(firstCustomer.getId(),
                 new BookSessionRequest(trainingService.getId(), timeslot.getId(), null, null, null));
+        assertEquals("Test Trainer", firstBooking.trainerName());
         assertFalse(timeslotRepository.findById(timeslot.getId()).orElseThrow().getIsAvailable());
 
         var cancelledBooking = sessionService.cancel(firstCustomer.getId(), firstBooking.id());
@@ -123,6 +124,7 @@ class TrainingSessionServiceIntegrationTests {
         sessionService.markCompleted(trainer.getId(), booking.id());
         var createdReview = reviewService.create(customer.getId(), booking.id(), new ReviewRequest(5, "Great"));
         assertTrue(createdReview.reviewDate() != null);
+        assertEquals("Test Trainer", createdReview.trainerName());
         assertEquals(1, reviewRepository.findAllByTrainerIdOrderByReviewDateDescIdDesc(trainer.getId()).size());
     }
 
@@ -145,6 +147,7 @@ class TrainingSessionServiceIntegrationTests {
         var returnedReviews = reviewService.listForCustomer(customer.getId());
         assertEquals(2, returnedReviews.size());
         assertEquals(newerReview.id(), returnedReviews.get(0).id());
+        assertEquals("Test Trainer", returnedReviews.get(0).trainerName());
         assertEquals(olderBooking.id(), returnedReviews.get(1).trainingSessionId());
         assertEquals(newerReview.reviewDate(), returnedReviews.get(0).reviewDate());
     }

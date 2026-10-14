@@ -16,6 +16,7 @@ public record TrainingSessionResponse(
         Long trainingServiceId,
         String trainingServiceName,
         Long trainerId,
+        String trainerName,
         Long timeslotId,
         LocalDateTime startTime,
         LocalDateTime endTime) {
@@ -26,6 +27,7 @@ public record TrainingSessionResponse(
                 session.getLevel(), session.getLocation(), session.getCustomer().getId(),
                 session.getCustomer().getName(), session.getTrainingService().getId(),
                 session.getTrainingService().getName(), session.getTrainingService().getTrainer().getId(),
+                session.getTrainingService().getTrainer().getName(),
                 timeslot == null ? null : timeslot.getId(),
                 timeslot == null ? null : timeslot.getStartTime(),
                 timeslot == null ? null : timeslot.getEndTime());
