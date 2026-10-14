@@ -66,6 +66,11 @@ public class CustomerController {
         return sessionService.listForCustomer(customerId);
     }
 
+    @GetMapping("/{customerId}/reviews")
+    public List<ReviewResponse> reviews(@PathVariable Long customerId) {
+        return reviewService.listForCustomer(customerId);
+    }
+
     @PostMapping("/{customerId}/sessions")
     public ResponseEntity<TrainingSessionResponse> bookSession(
             @PathVariable Long customerId,

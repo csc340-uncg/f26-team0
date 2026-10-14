@@ -39,7 +39,8 @@ public class TrainerStatisticsService {
                 }
                 List<TrainingSession> sessions = sessionRepository
                                 .findAllByTrainingService_Trainer_IdOrderByIdDesc(trainerId);
-                List<Review> reviews = reviewRepository.findAllByTrainerIdOrderByIdDesc(trainerId);
+                List<Review> reviews =
+                        reviewRepository.findAllByTrainerIdOrderByReviewDateDescIdDesc(trainerId);
                 LocalDateTime now = LocalDateTime.now();
                 long completedCount = sessions.stream()
                                 .filter(session -> "COMPLETED".equalsIgnoreCase(session.getStatus()))

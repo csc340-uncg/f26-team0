@@ -15,6 +15,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "reviews")
 public class Review {
@@ -35,6 +37,10 @@ public class Review {
     @Size(max = 2000)
     @Column(length = 2000)
     private String replyText;
+
+    @NotNull
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime reviewDate;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -80,6 +86,14 @@ public class Review {
 
     public void setReplyText(String replyText) {
         this.replyText = replyText;
+    }
+
+    public LocalDateTime getReviewDate() {
+        return reviewDate;
+    }
+
+    public void setReviewDate(LocalDateTime reviewDate) {
+        this.reviewDate = reviewDate;
     }
 
     public Customer getCustomer() {

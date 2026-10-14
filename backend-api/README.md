@@ -105,6 +105,7 @@ Content-Type: application/json
 | ------- | ------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------- |
 | `POST`  | `/api/customers/{customerId}/sessions`                        | Book a published service into an available slot       | [US-3](../docs/FitMatchSRS.md#L69)                                      |
 | `GET`   | `/api/customers/{customerId}/sessions`                        | View the customer's sessions/dashboard                | [US-3](../docs/FitMatchSRS.md#L69)                                      |
+| `GET`   | `/api/customers/{customerId}/reviews`                         | View the customer's reviews, newest first              | [US-4](../docs/FitMatchSRS.md#L82)                                      |
 | `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/cancel`     | Cancel a booked session                               | [US-3](../docs/FitMatchSRS.md#L69)                                      |
 | `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/reschedule` | Move a booked session to an available slot            | [US-3](../docs/FitMatchSRS.md#L69)                                      |
 | `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/notes`      | Update progress notes                                 | [US-3](../docs/FitMatchSRS.md#L69), [US-8](../docs/FitMatchSRS.md#L133) |

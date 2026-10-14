@@ -59,6 +59,7 @@ public class DocumentationController {
         | `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/cancel` | Cancel a booked session |
         | `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/reschedule` | Move a booked session to an available slot |
         | `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/notes` | Update progress notes |
+        | `GET` | `/api/customers/{customerId}/reviews` | View the customer's reviews, newest first |
         | `GET` | `/api/trainers/{trainerId}/sessions` | View sessions for a trainer |
         | `PATCH` | `/api/trainers/{trainerId}/sessions/{sessionId}/complete` | Mark a booked session completed |
         | `POST` | `/api/customers/{customerId}/sessions/{sessionId}/review` | Review a completed session (one review per session) |

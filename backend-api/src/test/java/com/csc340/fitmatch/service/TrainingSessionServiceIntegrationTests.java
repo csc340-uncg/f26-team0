@@ -121,8 +121,32 @@ class TrainingSessionServiceIntegrationTests {
                 () -> reviewService.create(customer.getId(), booking.id(), new ReviewRequest(5, "Great")));
 
         sessionService.markCompleted(trainer.getId(), booking.id());
-        reviewService.create(customer.getId(), booking.id(), new ReviewRequest(5, "Great"));
-        assertEquals(1, reviewRepository.findAllByTrainerIdOrderByIdDesc(trainer.getId()).size());
+        var createdReview = reviewService.create(customer.getId(), booking.id(), new ReviewRequest(5, "Great"));
+        assertTrue(createdReview.reviewDate() != null);
+        assertEquals(1, reviewRepository.findAllByTrainerIdOrderByReviewDateDescIdDesc(trainer.getId()).size());
+    }
+
+    @Test
+    void customerReviewsAreReturnedNewestFirst() {
+        Customer customer = createCustomer();
+        Trainer trainer = createTrainer();
+        TrainingService trainingService = createTrainingService(trainer);
+
+        var olderBooking = sessionService.book(customer.getId(),
+                new BookSessionRequest(trainingService.getId(), createTimeslot(trainer).getId(), null, null, null));
+        var newerBooking = sessionService.book(customer.getId(),
+                new BookSessionRequest(trainingService.getId(), createTimeslot(trainer).getId(), null, null, null));
+        sessionService.markCompleted(trainer.getId(), olderBooking.id());
+        sessionService.markCompleted(trainer.getId(), newerBooking.id());
+        reviewService.create(customer.getId(), olderBooking.id(), new ReviewRequest(4, "Older review"));
+        var newerReview = reviewService.create(customer.getId(), newerBooking.id(),
+                new ReviewRequest(5, "Newer review"));
+
+        var returnedReviews = reviewService.listForCustomer(customer.getId());
+        assertEquals(2, returnedReviews.size());
+        assertEquals(newerReview.id(), returnedReviews.get(0).id());
+        assertEquals(olderBooking.id(), returnedReviews.get(1).trainingSessionId());
+        assertEquals(newerReview.reviewDate(), returnedReviews.get(0).reviewDate());
     }
 
     private Customer createCustomer() {

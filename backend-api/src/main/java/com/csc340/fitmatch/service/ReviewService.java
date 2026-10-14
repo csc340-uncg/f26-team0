@@ -5,12 +5,14 @@ import com.csc340.fitmatch.dto.ReviewRequest;
 import com.csc340.fitmatch.dto.ReviewResponse;
 import com.csc340.fitmatch.entity.Review;
 import com.csc340.fitmatch.entity.TrainingSession;
+import com.csc340.fitmatch.repository.CustomerRepository;
 import com.csc340.fitmatch.repository.ReviewRepository;
 import com.csc340.fitmatch.repository.TrainingSessionRepository;
 import com.csc340.fitmatch.repository.TrainerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,14 +20,17 @@ import java.util.List;
 public class ReviewService {
     private final ReviewRepository reviewRepository;
     private final TrainingSessionRepository sessionRepository;
+    private final CustomerRepository customerRepository;
     private final TrainerRepository trainerRepository;
 
     public ReviewService(
             ReviewRepository reviewRepository,
             TrainingSessionRepository sessionRepository,
+            CustomerRepository customerRepository,
             TrainerRepository trainerRepository) {
         this.reviewRepository = reviewRepository;
         this.sessionRepository = sessionRepository;
+        this.customerRepository = customerRepository;
         this.trainerRepository = trainerRepository;
     }
 
@@ -50,8 +55,18 @@ public class ReviewService {
         review.setTrainer(session.getTrainingService().getTrainer());
         review.setRating(request.rating());
         review.setComments(request.comments());
+        review.setReviewDate(LocalDateTime.now());
         session.setReview(review);
         return ReviewResponse.from(reviewRepository.save(review));
+    }
+
+    @Transactional(readOnly = true)
+    public List<ReviewResponse> listForCustomer(Long customerId) {
+        if (!customerRepository.existsById(customerId)) {
+            throw new NotFoundException("Customer " + customerId + " was not found.");
+        }
+        return reviewRepository.findAllByCustomerIdOrderByReviewDateDescIdDesc(customerId)
+                .stream().map(ReviewResponse::from).toList();
     }
 
     @Transactional(readOnly = true)
@@ -59,7 +74,7 @@ public class ReviewService {
         if (!trainerRepository.existsById(trainerId)) {
             throw new NotFoundException("Trainer " + trainerId + " was not found.");
         }
-        return reviewRepository.findAllByTrainerIdOrderByIdDesc(trainerId)
+        return reviewRepository.findAllByTrainerIdOrderByReviewDateDescIdDesc(trainerId)
                 .stream().map(ReviewResponse::from).toList();
     }
 
