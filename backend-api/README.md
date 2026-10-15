@@ -14,22 +14,23 @@
 - local: http://localhost:8080/api
 - production: https://fit-match-api.onrender.com/api
 
-JSON request bodies are validated; validation errors
-return `400`, missing resources `404`, and duplicate or invalid state transitions
-`409`.
+JSON request bodies are validated. The endpoint tables list applicable error
+codes: `400 Bad Request` for invalid input, `404 Not Found` for missing
+resources, and `409 Conflict` for duplicate records or invalid state
+transitions.
 
 ## Profile and discovery
 
-| Method | Path                            | Purpose                                                    | User story                                                              |
-| ------ | ------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `POST` | `/api/customers`                | Register a customer profile                                | [US-1](../docs/FitMatchSRS.md#L44)                                      |
-| `GET`  | `/api/customers/{customerId}`   | Read a customer profile                                    | [US-1](../docs/FitMatchSRS.md#L44)                                      |
-| `PUT`  | `/api/customers/{customerId}`   | Update a customer profile                                  | [US-1](../docs/FitMatchSRS.md#L44)                                      |
-| `POST` | `/api/trainers`                 | Register a trainer profile                                 | [US-5](../docs/FitMatchSRS.md#L96)                                      |
-| `GET`  | `/api/trainers?category={goal}` | Browse trainers by specialty or published service category | [US-2](../docs/FitMatchSRS.md#L57)                                      |
-| `GET`  | `/api/trainers/{trainerId}`     | Read a trainer profile                                     | [US-5](../docs/FitMatchSRS.md#L96)                                      |
-| `PUT`  | `/api/trainers/{trainerId}`     | Update a trainer profile                                   | [US-5](../docs/FitMatchSRS.md#L96)                                      |
-| `GET`  | `/api/services?category={goal}` | Browse published training services by category             | [US-2](../docs/FitMatchSRS.md#L57), [US-6](../docs/FitMatchSRS.md#L109) |
+| Method | Path                            | Purpose                                                    | Response code | Error codes | User story                                                              |
+| ------ | ------------------------------- | ---------------------------------------------------------- | ------------- | ----------- | ----------------------------------------------------------------------- |
+| `POST` | `/api/customers`                | Register a customer profile                                | `201 Created` | `400, 409`  | [US-1](../docs/FitMatchSRS.md#L44)                                      |
+| `GET`  | `/api/customers/{customerId}`   | Read a customer profile                                    | `200 OK`      | `404`       | [US-1](../docs/FitMatchSRS.md#L44)                                      |
+| `PUT`  | `/api/customers/{customerId}`   | Update a customer profile                                  | `200 OK`      | `400, 404, 409` | [US-1](../docs/FitMatchSRS.md#L44)                                   |
+| `POST` | `/api/trainers`                 | Register a trainer profile                                 | `201 Created` | `400, 409`  | [US-5](../docs/FitMatchSRS.md#L96)                                      |
+| `GET`  | `/api/trainers?category={goal}` | Browse trainers by specialty or published service category | `200 OK`      | —           | [US-2](../docs/FitMatchSRS.md#L57)                                      |
+| `GET`  | `/api/trainers/{trainerId}`     | Read a trainer profile                                     | `200 OK`      | `404`       | [US-5](../docs/FitMatchSRS.md#L96)                                      |
+| `PUT`  | `/api/trainers/{trainerId}`     | Update a trainer profile                                   | `200 OK`      | `400, 404, 409` | [US-5](../docs/FitMatchSRS.md#L96)                                   |
+| `GET`  | `/api/services?category={goal}` | Browse published training services by category             | `200 OK`      | —           | [US-2](../docs/FitMatchSRS.md#L57), [US-6](../docs/FitMatchSRS.md#L109) |
 
 ### Example Customer Request
 
@@ -60,15 +61,15 @@ be exposed to untrusted clients until access control is added.
 
 ## Services and availability
 
-| Method   | Path                                                     | Purpose                                                             | User story                          |
-| -------- | -------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------- |
-| `GET`    | `/api/trainers/{trainerId}/services`                     | List that trainer's published services                              | [US-6](../docs/FitMatchSRS.md#L109) |
-| `POST`   | `/api/trainers/{trainerId}/services`                     | Add a service; it is published by default                           | [US-6](../docs/FitMatchSRS.md#L109) |
-| `PUT`    | `/api/trainers/{trainerId}/services/{serviceId}`         | Update service details or status (`DRAFT`, `PUBLISHED`, `ARCHIVED`) | [US-6](../docs/FitMatchSRS.md#L109) |
-| `GET`    | `/api/trainers/{trainerId}/timeslots?availableOnly=true` | Browse available time slots                                         | [US-3](../docs/FitMatchSRS.md#L69)  |
-| `POST`   | `/api/trainers/{trainerId}/timeslots`                    | Add a future availability slot                                      | [US-3](../docs/FitMatchSRS.md#L69)  |
-| `PUT`    | `/api/trainers/{trainerId}/timeslots/{timeslotId}`       | Update an unused slot                                               | [US-3](../docs/FitMatchSRS.md#L69)  |
-| `DELETE` | `/api/trainers/{trainerId}/timeslots/{timeslotId}`       | Delete an unused slot                                               | [US-3](../docs/FitMatchSRS.md#L69)  |
+| Method   | Path                                                     | Purpose                                                             | Response code    | Error codes | User story                          |
+| -------- | -------------------------------------------------------- | ------------------------------------------------------------------- | ---------------- | ----------- | ----------------------------------- |
+| `GET`    | `/api/trainers/{trainerId}/services`                     | List that trainer's published services                              | `200 OK`         | `404`       | [US-6](../docs/FitMatchSRS.md#L109) |
+| `POST`   | `/api/trainers/{trainerId}/services`                     | Add a service; it is published by default                           | `201 Created`    | `400, 404`  | [US-6](../docs/FitMatchSRS.md#L109) |
+| `PUT`    | `/api/trainers/{trainerId}/services/{serviceId}`         | Update service details or status (`DRAFT`, `PUBLISHED`, `ARCHIVED`) | `200 OK`         | `400, 404`  | [US-6](../docs/FitMatchSRS.md#L109) |
+| `GET`    | `/api/trainers/{trainerId}/timeslots?availableOnly=true` | Browse available time slots                                         | `200 OK`         | `404`       | [US-3](../docs/FitMatchSRS.md#L69)  |
+| `POST`   | `/api/trainers/{trainerId}/timeslots`                    | Add a future availability slot                                      | `201 Created`    | `400, 404`  | [US-3](../docs/FitMatchSRS.md#L69)  |
+| `PUT`    | `/api/trainers/{trainerId}/timeslots/{timeslotId}`       | Update an unused slot                                               | `200 OK`         | `400, 404, 409` | [US-3](../docs/FitMatchSRS.md#L69) |
+| `DELETE` | `/api/trainers/{trainerId}/timeslots/{timeslotId}`       | Delete an unused slot                                               | `204 No Content` | `404, 409`  | [US-3](../docs/FitMatchSRS.md#L69)  |
 
 Timeslot timestamps use ISO-8601 local date-time values, for example
 `"2030-05-10T14:30:00"`. The end time must be later than the start time.
@@ -101,20 +102,20 @@ Content-Type: application/json
 
 ## Sessions and reviews
 
-| Method  | Path                                                          | Purpose                                               | User story                                                              |
-| ------- | ------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------- |
-| `POST`  | `/api/customers/{customerId}/sessions`                        | Book a published service into an available slot       | [US-3](../docs/FitMatchSRS.md#L69)                                      |
-| `GET`   | `/api/customers/{customerId}/sessions`                        | View the customer's sessions/dashboard                | [US-3](../docs/FitMatchSRS.md#L69)                                      |
-| `GET`   | `/api/customers/{customerId}/reviews`                         | View the customer's reviews, newest first              | [US-4](../docs/FitMatchSRS.md#L82)                                      |
-| `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/cancel`     | Cancel a booked session                               | [US-3](../docs/FitMatchSRS.md#L69)                                      |
-| `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/reschedule` | Move a booked session to an available slot            | [US-3](../docs/FitMatchSRS.md#L69)                                      |
-| `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/notes`      | Update progress notes                                 | [US-3](../docs/FitMatchSRS.md#L69), [US-8](../docs/FitMatchSRS.md#L133) |
-| `GET`   | `/api/trainers/{trainerId}/sessions`                          | View sessions for a trainer                           | [US-3](../docs/FitMatchSRS.md#L69)                                      |
-| `PATCH` | `/api/trainers/{trainerId}/sessions/{sessionId}/complete`     | Mark a booked session completed                       | [US-4](../docs/FitMatchSRS.md#L82)                                      |
-| `POST`  | `/api/customers/{customerId}/sessions/{sessionId}/review`     | Review a completed session (one review per session)   | [US-4](../docs/FitMatchSRS.md#L82)                                      |
-| `GET`   | `/api/trainers/{trainerId}/reviews`                           | View reviews received by a trainer                    | [US-7](../docs/FitMatchSRS.md#L121)                                     |
-| `PATCH` | `/api/trainers/{trainerId}/reviews/{reviewId}/reply`          | Reply to a review                                     | [US-7](../docs/FitMatchSRS.md#L121)                                     |
-| `GET`   | `/api/trainers/{trainerId}/statistics`                        | View session, rating, and customer progress summaries | [US-8](../docs/FitMatchSRS.md#L133)                                     |
+| Method  | Path                                                          | Purpose                                               | Response code | Error codes | User story                                                              |
+| ------- | ------------------------------------------------------------- | ----------------------------------------------------- | ------------- | ----------- | ----------------------------------------------------------------------- |
+| `POST`  | `/api/customers/{customerId}/sessions`                        | Book a published service into an available slot       | `201 Created` | `400, 404, 409` | [US-3](../docs/FitMatchSRS.md#L69)                                   |
+| `GET`   | `/api/customers/{customerId}/sessions`                        | View the customer's sessions/dashboard                | `200 OK`      | `404`       | [US-3](../docs/FitMatchSRS.md#L69)                                      |
+| `GET`   | `/api/customers/{customerId}/reviews`                         | View the customer's reviews, newest first              | `200 OK`      | `404`       | [US-4](../docs/FitMatchSRS.md#L82)                                      |
+| `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/cancel`     | Cancel a booked session                               | `200 OK`      | `404, 409`  | [US-3](../docs/FitMatchSRS.md#L69)                                      |
+| `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/reschedule` | Move a booked session to an available slot            | `200 OK`      | `400, 404, 409` | [US-3](../docs/FitMatchSRS.md#L69)                                   |
+| `PATCH` | `/api/customers/{customerId}/sessions/{sessionId}/notes`      | Update progress notes                                 | `200 OK`      | `400, 404, 409` | [US-3](../docs/FitMatchSRS.md#L69), [US-8](../docs/FitMatchSRS.md#L133) |
+| `GET`   | `/api/trainers/{trainerId}/sessions`                          | View sessions for a trainer                           | `200 OK`      | —           | [US-3](../docs/FitMatchSRS.md#L69)                                      |
+| `PATCH` | `/api/trainers/{trainerId}/sessions/{sessionId}/complete`     | Mark a booked session completed                       | `200 OK`      | `404, 409`  | [US-4](../docs/FitMatchSRS.md#L82)                                      |
+| `POST`  | `/api/customers/{customerId}/sessions/{sessionId}/review`     | Review a completed session (one review per session)   | `201 Created` | `400, 404, 409` | [US-4](../docs/FitMatchSRS.md#L82)                                   |
+| `GET`   | `/api/trainers/{trainerId}/reviews`                           | View reviews received by a trainer                    | `200 OK`      | `404`       | [US-7](../docs/FitMatchSRS.md#L121)                                     |
+| `PATCH` | `/api/trainers/{trainerId}/reviews/{reviewId}/reply`          | Reply to a review                                     | `200 OK`      | `400, 404`  | [US-7](../docs/FitMatchSRS.md#L121)                                     |
+| `GET`   | `/api/trainers/{trainerId}/statistics`                        | View session, rating, and customer progress summaries | `200 OK`      | `404`       | [US-8](../docs/FitMatchSRS.md#L133)                                     |
 
 ### Example Session Request
 
