@@ -209,6 +209,14 @@ public class TrainerUiController {
         return "redirect:/trainers/dashboard";
     }
 
+    @PostMapping("/sessions/{sessionId}/complete")
+    public String markSessionCompleted(
+            @PathVariable Long sessionId,
+            HttpSession session) {
+        trainingSessionService.markCompleted(UiSession.requireId(session, "trainer"), sessionId);
+        return "redirect:/trainers/dashboard";
+    }
+
     @PostMapping("/reviews/{reviewId}/reply")
     public String replyToReview(
             @PathVariable Long reviewId,

@@ -145,7 +145,11 @@ class UiControllerIntegrationTests {
         long sessionId = trainingSessionService.listForCustomer(customerId).get(0).id();
         page("/customers/sessions/" + sessionId, customerSession);
         page("/trainers/clients/" + customerId, trainerSession);
-        trainingSessionService.markCompleted(trainerId, sessionId);
+        mockMvc.perform(post("/trainers/sessions/" + sessionId + "/complete")
+                        .session(trainerSession))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/trainers/dashboard"));
+        assertEquals("COMPLETED", trainingSessionService.listForCustomer(customerId).get(0).status());
         page("/customers/sessions/" + sessionId + "/review", customerSession);
         mockMvc.perform(post("/customers/sessions/" + sessionId + "/review")
                         .session(customerSession)
