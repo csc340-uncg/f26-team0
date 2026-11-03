@@ -130,6 +130,20 @@ public class TrainingSessionService {
         return TrainingSessionResponse.from(sessionRepository.save(session));
     }
 
+    public TrainingSessionResponse updateNotesForTrainer(
+            Long trainerId, Long sessionId, SessionNotesRequest request) {
+        TrainingSession session = lockSession(sessionId);
+        if (!session.getTrainingService().getTrainer().getId().equals(trainerId)) {
+            throw new NotFoundException("Training session " + sessionId + " was not found for trainer "
+                    + trainerId + ".");
+        }
+        if ("CANCELLED".equalsIgnoreCase(session.getStatus())) {
+            throw new ConflictException("Notes cannot be updated for a cancelled session.");
+        }
+        session.setNotes(request.notes() == null ? "" : request.notes().trim());
+        return TrainingSessionResponse.from(sessionRepository.save(session));
+    }
+
     private void ensureBookable(Timeslot timeslot) {
         if (!Boolean.TRUE.equals(timeslot.getIsAvailable())) {
             throw new ConflictException("The selected timeslot is no longer available.");

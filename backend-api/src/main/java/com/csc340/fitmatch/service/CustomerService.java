@@ -41,6 +41,16 @@ public class CustomerService {
     }
 
     @Transactional(readOnly = true)
+    public CustomerResponse authenticate(String email, String password) {
+        Customer customer = customerRepository.findByEmailIgnoreCase(email.trim())
+                .orElseThrow(() -> new BadRequestException("Invalid email or password."));
+        if (!passwordEncoder.matches(password, customer.getPassword())) {
+            throw new BadRequestException("Invalid email or password.");
+        }
+        return CustomerResponse.from(customer);
+    }
+
+    @Transactional(readOnly = true)
     public CustomerResponse getProfile(Long customerId) {
         return CustomerResponse.from(findCustomer(customerId));
     }

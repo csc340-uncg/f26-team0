@@ -45,6 +45,13 @@ public class TrainingCatalogService {
     }
 
     @Transactional(readOnly = true)
+    public List<TrainingServiceResponse> listForTrainer(Long trainerId) {
+        ensureTrainerExists(trainerId);
+        return trainingServiceRepository.findAllByTrainerIdOrderById(trainerId)
+                .stream().map(TrainingServiceResponse::from).toList();
+    }
+
+    @Transactional(readOnly = true)
     public List<TrainingServiceResponse> listPublishedByCategory(String category) {
         return trainingServiceRepository
                 .findAllByCategoryIgnoreCaseAndStatusIgnoreCaseOrderById(category, "PUBLISHED")

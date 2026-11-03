@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -16,6 +17,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +49,13 @@ public class Trainer {
     @Size(max = 30)
     @Column(nullable = false, length = 30)
     private String accountStatus;
+
+    @Lob
+    @JsonIgnore
+    private Blob profilePicture;
+
+    @JsonIgnore
+    private String profilePictureContentType;
 
     @Size(max = 2000)
     @Column(length = 2000)
@@ -114,6 +123,22 @@ public class Trainer {
 
     public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
+    }
+
+    public Blob getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(Blob profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getProfilePictureContentType() {
+        return profilePictureContentType;
+    }
+
+    public void setProfilePictureContentType(String profilePictureContentType) {
+        this.profilePictureContentType = profilePictureContentType;
     }
 
     public String getBiography() {
