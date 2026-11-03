@@ -59,6 +59,19 @@ never included in API responses. Authentication and authorization are not yet
 implemented; IDs in paths are not proof of identity and these endpoints must not
 be exposed to untrusted clients until access control is added.
 
+## Freemarker demo UI
+
+The server-rendered demo starts at `/`. Customer registration is at `/register`
+and trainer registration is at `/provider/register`. The UI uses the existing
+DTO-backed services and stores the selected account ID and role in an HTTP
+session; this is demo-only and is not Spring Security. The JSON API routes above
+remain unchanged and do not use the UI session for authentication. Trainers can
+publish services and add future availability from **My Services** before
+customers can book them.
+Trainer registration and profile editing accept an optional picture upload.
+Trainer portraits are streamed from `/trainers/{trainerId}/picture`, displayed
+at 200x200, and use a placeholder when no picture has been uploaded.
+
 ## Services and availability
 
 | Method   | Path                                                     | Purpose                                                             | Response code    | Error codes | User story                          |
