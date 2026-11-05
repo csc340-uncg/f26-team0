@@ -75,6 +75,23 @@ class TrainingSessionServiceIntegrationTests {
         assertEquals("Registered Customer", response.name());
     }
 
+    
+    @Test
+    void cancelTrainingSessionDeletesSessionAndReleasesTimeslot() {
+        Customer customer = createCustomer();
+        Trainer trainer = createTrainer();
+        TrainingService trainingService = createTrainingService(trainer);
+        Timeslot timeslot = createTimeslot(trainer);
+
+        var booking = sessionService.book(customer.getId(),
+                new BookSessionRequest(trainingService.getId(), timeslot.getId(), null, null, null));
+        assertFalse(timeslotRepository.findById(timeslot.getId()).orElseThrow().getIsAvailable());
+
+        sessionService.cancel(customer.getId(), booking.id());
+        assertTrue(timeslotRepository.findById(timeslot.getId()).orElseThrow().getIsAvailable());
+        assertNull(sessionRepository.findById(booking.id()).orElseThrow().getTimeslot());
+    }
+    
     @Test
     void trainerDiscoveryIncludesPublishedServiceCategories() {
         Trainer trainer = createTrainer();
